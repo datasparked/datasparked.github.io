@@ -1,0 +1,19 @@
+# main navigation bar
+main:
+  - title: "Reinforcement Learning"
+    url: /reinforcement_learning/
+  - title: "Data Science Dictionary"
+    url: /data_science_dictionary/
+  - title: "Deep Learning"
+    url: /deep_learning/
+  - title: "Optimisation"
+    url: /optimisation/
+  - title: "Supervised Learning"
+    url: /supervised_learning/
+  - title: "Cheat Sheets"
+    url: /cheat_sheets/
+  - title: "Anomaly Detection"
+    url: /anomaly_detection_for_time_series/
+  - title: "Privacy policy"
+    url: /terms/
+
