@@ -1,7 +1,6 @@
 # main navigation bar
 main:
   - title: "Home"
-    url: /index/
   - title: "About"
     url: /about/
   - title: "Reinforcement Learning"
