@@ -1,9 +1,14 @@
 ---
 permalink: /about/
 title: "About"
-excerpt: "About this blog"
+excerpt: "The person behind the scene."
 last_modified_at: 2022-06-28T11:59:26-04:00
 author_profile: true
+header:
+  teaser: /assets/images/header_images/pawel-czerwinski-9anj7QWy-2g-unsplash.jpg
+  overlay_image: /assets/images/header_images/pawel-czerwinski-9anj7QWy-2g-unsplash.jpg
+  overlay_filter: 0.2
+  caption: "Photo credit: [**Pawel Czerwinski**](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
 toc: false
 ---
 

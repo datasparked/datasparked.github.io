@@ -1,5 +1,9 @@
 # main navigation bar
 main:
+  - title: "Home"
+    url: /index/
+  - title: "About"
+    url: /about/
   - title: "Reinforcement Learning"
     url: /reinforcement_learning/
   - title: "Data Science Dictionary"
@@ -16,6 +20,3 @@ main:
     url: /anomaly_detection_for_time_series/
   - title: "Privacy policy"
     url: /terms/
-  - title: "About"
-    url: /about/
-
