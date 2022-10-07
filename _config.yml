@@ -103,7 +103,7 @@ author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
   avatar           : "/assets/images/profile.jpg"
   bio              : "Machine learning researcher"
-  location         : 
+  location         : "Dublin, Ireland"
   links:
     - label: "Personal website"
       icon: "fas fa-fw fa-link"
@@ -114,6 +114,9 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/pierreaumjaud/"
+    - label: "Buy me a Coffee"
+      icon: "fab fa fa-coffee"
+      url: "https://www.buymeacoffee.com/datasparked"
 
 # Site Footer
 footer:
@@ -139,6 +142,9 @@ footer:
     - label: "Pinterest"
       icon: "fab fa-fw fa-pinterest"
       url: "https://www.pinterest.fr/datasparked/"
+    - label: "Buy me a Coffee"
+      icon: "fab fa fa-coffee"
+      url: "https://www.buymeacoffee.com/datasparked"
 
 
 # Reading Files
