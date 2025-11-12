@@ -96,6 +96,12 @@ git branch new_branch
 git checkout my_branch
 ```
 
+- Create a new branch and switch to this branch 
+
+```bash
+git checkout -b new_branch
+```
+
 - Delete a branch
 
 ```bash
@@ -108,6 +114,17 @@ git branch -d my_branch
 git checkout branch_b
 git merge branch_a
 ```
+
+## Resolve merging conflicts
+
+```bash  
+git mergetool --tool=emerge
+```   
+
+It will open 3 windows: version a on top left, version b on top right and final version at the bottom.
+- press n for next change
+- press a or b to choose which version I want to keep
+- press q to quit and save 
 
 ## Make a change
 
@@ -153,4 +170,23 @@ git pull
 
 ```bash
 git push
+```
+
+## Add an existing SSH key to the agent
+
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+## Fix remote repo not empty
+
+When I want to push to a remote repository that is not empty (for example if it was initialised with a license or readme file).
+
+```bash
+git fetch origin main:tmp
+git rebase tmp
+git push origin HEAD:main
+git branch -D tmp
 ```

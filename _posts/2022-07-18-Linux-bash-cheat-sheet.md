@@ -134,7 +134,7 @@ sudo apt-get -u dselect-upgrade
 ```   
 
     
--  
+
 ## 3. Command line history
 
     
@@ -221,11 +221,11 @@ chown -R user:group /directory/of/interest
 ```   
 
 
-- Make script executable 
+- Make script executable for all users
  
 
 ```bash  
-chmod +x "file name"
+chmod a+x "file name"
 ```   
 
     
@@ -352,8 +352,7 @@ lsblk
  
 
 ```bash  
-cd /dev
-ls
+ls /dev
 ```   
 
     
@@ -407,17 +406,13 @@ squeue
 ```   
 
 
-## 9. Resolve merging conflicts with Git
+## 9. Synchronize files
 
-```bash  
-git mergetool --tool=emerge
-```   
+This removes files from destination that don't exist in source.
 
-It will open 3 windows: version a on top left, version b on top right and final version at the bottom.
-- press n for next change
-- press a or b to choose which version I want to keep
-- press q to quit and save 
- 
+```bash
+rsync -azvh source/ destination/ --delete
+```
 
 ## 10. Manipulate PDF documents with pdftk
 
@@ -481,7 +476,7 @@ Select File > click Export as > Select File Type as gif > Select ‘As Animation
 - Open a terminal new widow 
  
 ```bash
-CTRL + ALT +T
+CTRL + ALT + T
 ```   
 
     
@@ -569,7 +564,7 @@ sudo !!
 sudo -i
 ```
 
-- Logout as root
+- Logout as root (exit)
 ```bash
 CTRL + D
 ```

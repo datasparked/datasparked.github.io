@@ -25,39 +25,30 @@ Another handy cheat sheet can be found [here](https://github.com/wsargent/docker
 
 - Check Docker installation
 
-
 ```bash
 docker version
 docker run hello-world
 ```
 
-
 - List docker images
-
 
 ```bash
 docker images
 ```
 
-
 - List dangling Docker images
-
 
 ```bash
 docker images -f dangling=true
 ```
 
-
 - Remove dangling images and build caches, all stopped containers and all networks not used by at least 1 container (useful to free some space).
-
 
 ```bash
 docker system prune
 ```
 
-
 - Remove docker image by ID
-
 
 ```bash
 docker rmi -f IMAGE_ID
@@ -65,55 +56,54 @@ docker rmi -f IMAGE_ID
 
 - Download a Docker image
 
-
 ```bash
 docker pull IMAGE_NAME
 ```
 
-
 - List running containers
-
 
 ```bash
 docker ps
 docker container ls
 ```
 
-
 - List all containers
-
 
 ```bash
 docker ps -a
 ```
 
-
 - Stop a container
-
 
 ```bash
 docker stop CONTAINER_ID
 ```
 
-
 - Remove a container
-
 
 ```bash
 docker rm CONTAINER_ID
 ```
 
+- Stop all the containers
+
+```bash
+docker stop $(docker ps -a -q)
+```
+
+- Remove all the containers
+
+```bash
+docker rm $(docker ps -a -q)
+```
 
 - Run a docker image
-
 
 ```bash
 docker run -it --rm IMAGE_ID
 ```
 
-
 - Options of the run command:
-
 
 ```bash
 -u $(id -u):$(id -g)       # assign a user and a group ID
@@ -125,66 +115,50 @@ docker run -it --rm IMAGE_ID
 -p 8888:8888               # define port 8888 to connect to the container (for Jupyter notebooks)
 ```
 
-
 - Open a new terminal in a running container
-
 
 ```bash
 docker exec -it CONTAINER_ID bash
 ```
 
-
 ## Create a new Docker image
-
 
 
 There are 2 main methods.
 
+#### Method 1 : Using a Dockerfile
 
 
-**Method 1 : Using Dockerfile**
+1. Create a file called `Dockerfile` on your host machine.
 
+    ```dockerfile
+    # getting base Ubuntu image
+    FROM ubuntu
 
+    # file author / maintainer
+    LABEL maintainer="your_email_address"
 
-1. Create a file called Dockerfile from your host machine.
+    # update the repository sources list
+    RUN apt-get update
 
-
-```bash
-vim Dockerfile
-```
-
-```bash
-# getting base Ubuntu image
-FROM ubuntu
-
-# file author / maintainer
-LABEL maintainer=<your_email_address>;
-
-# update the repository sources list
-RUN apt-get update
-
-# print Hello World
-CMD ["echo", "Hello World"]
-```
-
+    # print Hello World
+    CMD ["echo", "Hello World"]
+    ```
 
 2. Build the image.
 
-
-```bash
-docker build -t myimage:0.1 .
-```
-
+    ```bash
+    docker build -t myimage:0.1 .
+    ```
 
 3. Run the image.
 
+    ```bash
+    docker run myimage:0.1
+    ```
 
-```bash
-docker run myimage:0.1
-```
 
-
-**Method 2 : Commit a Docker image from a running container**
+#### Method 2 : Commit a Docker image from a running container
 
 
 Modify a running container and run this in another terminal.
