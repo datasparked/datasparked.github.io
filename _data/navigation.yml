@@ -1,8 +1,9 @@
 # main navigation bar
 main:
-  - title: "Home"
   - title: "About"
     url: /about/
+  - title: "Tech"
+    url: /tech/
   - title: "Reinforcement Learning"
     url: /reinforcement_learning/
   - title: "Data Science Dictionary"
