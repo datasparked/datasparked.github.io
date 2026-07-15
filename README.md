@@ -36,6 +36,14 @@ bundle exec jekyll serve --config _config.yml,_config.dev.yml
 
 The site is served at http://localhost:4000/. Plain `bundle exec jekyll serve` also works but uses the production config (analytics on, production URL).
 
+## Tests
+
+```
+bundle exec rake test
+```
+
+Builds the site and validates the generated HTML with [html-proofer](https://github.com/gjtorikian/html-proofer): broken internal links, missing images and hash anchors. External links are not checked. Run it before pushing.
+
 ## Deployment
 
 Push to `main` — GitHub Pages builds and deploys the site automatically. There are no CI workflows.

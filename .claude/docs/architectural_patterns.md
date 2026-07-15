@@ -77,9 +77,11 @@ genuinely customized files:
   `analytics.provider: "custom"` (`_config.yml:96`) and gated to production builds by
   `_includes/analytics.html:1`.
 - `_includes/footer/custom.html` — empty hook, available for additions.
+- `_layouts/default.html:48-54` and `_layouts/single.html:71,111` — Google AdSense
+  script and `<ins class="adsbygoogle">` slots added to the stock layouts.
 
 **Rule:** don't edit other vendored theme files; put customizations in the
-`custom.html` hook files above. `_sass/` and `_layouts/` are entirely stock.
+`custom.html` hook files above. `_sass/` is entirely stock.
 
 ## 6. Config layering
 

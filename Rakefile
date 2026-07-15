@@ -74,3 +74,26 @@ task :preview do
 
   Jekyll::Commands::Serve.process(options)
 end
+
+desc "Build the site and validate the generated HTML (internal links, images, scripts)"
+task :test do
+  require "html-proofer"
+
+  sh "bundle exec jekyll build --config _config.yml,_config.dev.yml -d _site"
+
+  options = {
+    disable_external: true,
+    allow_hash_href: true,
+    enforce_https: false,
+    ignore_missing_alt: true,
+    checks: ["Links", "Images", "Scripts"],
+    # Posts reference internal URLs absolutely via {{ site.url }}; strip the
+    # host so html-proofer validates them as internal paths.
+    swap_urls: {
+      %r{\Ahttps?://localhost:4000} => "",
+      %r{\Ahttps?://(www\.)?datasparked\.com} => ""
+    }
+  }
+
+  HTMLProofer.check_directory("./_site", options).run
+end

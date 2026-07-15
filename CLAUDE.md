@@ -12,7 +12,7 @@ or small config/theme tweaks — not application code.
 ## Tech stack
 
 - Jekyll via the `github-pages` gem (see `Gemfile`), built automatically by GitHub Pages
-  on push to `main` — there is no CI and no test suite.
+  on push to `main` — there is no CI; site validation runs locally via `rake test`.
 - Theme: Minimal Mistakes, declared as `remote_theme` (`_config.yml:8`) **and** fully
   vendored into `_includes/`, `_layouts/`, `_sass/` — local files shadow the remote
   theme. Only a handful of files are actually customized (see architectural patterns doc).
@@ -39,6 +39,7 @@ or small config/theme tweaks — not application code.
 bundle install                                                  # one-time setup
 bundle exec jekyll serve --config _config.yml,_config.dev.yml   # dev server, localhost:4000
 bundle exec jekyll build                                        # production build to _site/
+bundle exec rake test                                           # build + html-proofer validation (run before pushing)
 ```
 
 Deployment = push to `main`. The `package.json` npm scripts are theme JS build tooling
