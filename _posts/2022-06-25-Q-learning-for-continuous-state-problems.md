@@ -17,7 +17,7 @@ In a previous [post]({% post_url 2022-06-24-Q-learning-for-discrete-state-proble
 
 ## Cart-Pole environment
 
-The Cart-Pole environment was described in a previous [post](/reinforcement%20learning/Introduction-to-openAI-gym/). Basically, the agent must learn to balance an inverted pendulum by pushing a cart sliding on a rail towards the right or towards the left.
+The Cart-Pole environment was described in a previous [post]({% post_url 2022-06-23-Introduction-to-openAI-gym %}). Basically, the agent must learn to balance an inverted pendulum by pushing a cart sliding on a rail towards the right or towards the left.
 
 ![cartpole]({{ site.url }}{{ site.baseurl }}/assets/images/cartpole.png)
 

@@ -83,15 +83,15 @@ task :test do
 
   options = {
     disable_external: true,
-    allow_hash_href: true,
+    # Needed even with disable_external: the https check is a static test on
+    # the href string and would flag the http:// links in older posts.
     enforce_https: false,
     ignore_missing_alt: true,
-    checks: ["Links", "Images", "Scripts"],
-    # Posts reference internal URLs absolutely via {{ site.url }}; strip the
-    # host so html-proofer validates them as internal paths.
+    # Posts reference internal URLs absolutely via {{ site.url }} (localhost in
+    # the dev config); strip the host so html-proofer validates them as
+    # internal paths.
     swap_urls: {
-      %r{\Ahttps?://localhost:4000} => "",
-      %r{\Ahttps?://(www\.)?datasparked\.com} => ""
+      %r{\Ahttps?://localhost:4000} => ""
     }
   }
 

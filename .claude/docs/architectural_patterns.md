@@ -5,15 +5,15 @@ to canonical examples.
 
 ## 1. Front-matter defaults inheritance
 
-Posts and pages inherit most settings from the `defaults:` block in `_config.yml:222-244`:
+Posts and pages inherit most settings from the `defaults:` block in `_config.yml:224-246`:
 
-- Posts (`_config.yml:224-235`): `layout: single`, `author_profile`, `read_time`,
+- Posts (`_config.yml:226-237`): `layout: single`, `author_profile`, `read_time`,
   `comments`, `share`, `related`, `toc`, `toc_sticky` — all true.
-- Pages (`_config.yml:237-244`): `layout: single`, `author_profile: false`,
+- Pages (`_config.yml:239-246`): `layout: single`, `author_profile: false`,
   `comments: false`, `toc: false`.
 
 Consequence: **posts never set** `layout`, `tags`, `toc`, or `permalink` themselves.
-URLs come from the site-wide permalink pattern `/:categories/:title/` (`_config.yml:253`).
+URLs come from the site-wide permalink pattern `/:categories/:title/` (`_config.yml:255`).
 Pages override defaults individually when needed (e.g. `_pages/08-about.md:6,12`
 re-enables `author_profile` and keeps `toc: false` explicit;
 `_pages/02-data-science-dictionary.md` re-enables `toc`).
@@ -24,7 +24,7 @@ Canonical example: `_posts/2022-06-24-Q-learning-for-discrete-state-problems.md:
 
 - `title:` — quoted; tutorial-series posts are prefixed `"Part N : ..."`.
 - `excerpt:` — one-line summary; always set explicitly (wins over the auto-excerpt
-  from `excerpt_separator`, `_config.yml:189`).
+  from `excerpt_separator`, `_config.yml:191`).
 - `category:` — a YAML list with exactly one lowercase, space-containing value
   (`reinforcement learning`, `deep learning`, `cheat sheet`, `optimisation`, `tech`).
   This string is the lookup key used by category landing pages (pattern 3), so it must
@@ -100,9 +100,14 @@ additionally gated to `jekyll.environment == 'production'`.
 - Math: `$$...$$` blocks rendered by MathJax (e.g.
   `_posts/2022-06-24-Q-learning-for-discrete-state-problems.md`).
 - Code: fenced triple-backtick blocks with a language tag, highlighted by rouge.
-- Internal links: use the rendered permalink (`/reinforcement_learning/...`).
-  **Anti-pattern to avoid:** linking to raw source paths like
-  `/_posts/2022-06-24-....md` (an existing broken example is in
-  `_posts/2022-06-28-registering-a-custom-Gym-environment.md:18`).
+- Internal links: link to another **post** with
+  `{% post_url YYYY-MM-DD-post-slug %}` (resolves at build time and fails the
+  build if the target is renamed; used throughout the RL series, e.g.
+  `_posts/2022-06-25-Q-learning-for-continuous-state-problems.md:16`). Link to a
+  **page** by its explicit permalink (`/reinforcement_learning/`,
+  `/cheat_sheets/`, ...). Note post URLs live under the category namespace with
+  an encoded space (`/reinforcement%20learning/<title>/`) — another reason to
+  prefer `post_url` over hardcoding. **Anti-pattern to avoid:** linking to raw
+  source paths like `/_posts/2022-06-24-....md` — they 404 when rendered.
 - Downloadable assets (PDF cheat sheets) live in `assets/downloads/` and are linked
   the same way as images.

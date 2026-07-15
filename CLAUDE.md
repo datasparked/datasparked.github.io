@@ -3,7 +3,7 @@
 ## Project overview
 
 Source of [datasparked.com](https://www.datasparked.com/) — a personal blog on applied
-machine learning and data science by Pierre Aumjaud. ~33 tutorial posts covering
+machine learning and data science by Pierre Aumjaud. Tutorial posts covering
 reinforcement learning, deep learning, optimisation, supervised learning and developer
 cheat sheets, plus standalone pages (data science dictionary, about, privacy).
 The purpose of this repo is publishing content: most changes are new posts, page edits,

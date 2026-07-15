@@ -15,7 +15,7 @@ category:
 ---
 
 
-In this tutorial, we will create and register a minimal gym environment. Please [read the introduction](/reinforcement%20learning/Introduction-to-openAI-gym/) before starting this tutorial.
+In this tutorial, we will create and register a minimal gym environment. Please [read the introduction]({% post_url 2022-06-23-Introduction-to-openAI-gym %}) before starting this tutorial.
 
 First of all, let's understand what is a Gym environment exactly. A Gym environment contains all the necessary functionalities to that an agent can interact with it. Basically, it is a class with 4 methods:
 - **__init__**: initialization function of the class
